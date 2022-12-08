@@ -39,7 +39,7 @@ class Like extends StatelessWidget {
         elevation: 0,
         backgroundColor: Color(0xFFFFFFFF),
         title: Text(
-          "Saved Recipe",
+          "Favorite shoes",
           style: TextStyle(
               fontFamily: 'OpenSans-Bold',
               color: Color(0XFF383838),
@@ -58,13 +58,8 @@ class Like extends StatelessWidget {
               if (snapshot.hasError) {
                 return Text(snapshot.error.toString());
               } else {
-                return GridView.builder(
+                return ListView.builder(
                   itemCount: snapshot.data?.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 15,
-                  ),
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
@@ -85,9 +80,9 @@ class Like extends StatelessWidget {
                                             as bool))));
                       },
                       child: LikeShoes(
-                        imgUrl: "${snapshot.data?[index].image}",
-                        title: "${snapshot.data?[index].nama}",
-                        times: "${snapshot.data?[index].image}",
+                        image: "${snapshot.data?[index].image}",
+                        nama: "${snapshot.data?[index].nama}",
+                        price: "${snapshot.data?[index].price}",
                       ),
                     );
                   },
@@ -102,12 +97,9 @@ class Like extends StatelessWidget {
 }
 
 class LikeShoes extends StatelessWidget {
-  final String imgUrl, title, times;
+  final String image, nama, price;
   const LikeShoes(
-      {Key? key,
-      required this.imgUrl,
-      required this.title,
-      required this.times})
+      {Key? key, required this.image, required this.nama, required this.price})
       : super(key: key);
 
   @override
@@ -115,16 +107,21 @@ class LikeShoes extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          height: 100,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              image: DecorationImage(
-                  image: NetworkImage(imgUrl), fit: BoxFit.cover)),
+        Material(
+          borderRadius: BorderRadius.circular(8),
+          elevation: 3,
+          child: Container(
+            height: 350,
+            width: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                image: DecorationImage(
+                    image: NetworkImage(image), fit: BoxFit.cover)),
+          ),
         ),
         SizedBox(height: 12),
         Text(
-          title,
+          nama,
           style: TextStyle(
             fontFamily: 'OpenSans-SemiBold',
             fontSize: 16,
@@ -133,7 +130,7 @@ class LikeShoes extends StatelessWidget {
         ),
         SizedBox(height: 2),
         Text(
-          times,
+          price,
           style: TextStyle(
             fontFamily: 'OpenSans-Regular',
             fontSize: 14,

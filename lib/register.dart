@@ -22,7 +22,7 @@ TextEditingController controllerName = TextEditingController();
 void register(String email, password, nama) async {
   try {
     var response = await Dio().post('http://localhost:3004/user',
-        data: {"email": email, "password": password, "nama": nama});
+        data: {"email": email, "password": password, "name": nama});
     if (response.statusCode == 201) {
       print("Account created successfully");
     } else {
@@ -141,7 +141,6 @@ class _RegisterState extends State<Register> {
                         height: 8,
                       ),
                       TextFormField(
-                        obscureText: true,
                         controller: controllerName,
                         decoration: InputDecoration(
                             hintText: "Name",

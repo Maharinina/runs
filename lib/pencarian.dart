@@ -172,7 +172,7 @@ class _SearchState extends State<Search> {
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide(color: Color(0xFFF2F2F2), width: 3)),
-            hintText: 'Search for recipes',
+            hintText: 'Search for shoes',
             hintStyle: TextStyle(
                 fontFamily: 'OpenSans-Light',
                 color: Color(0xFF949494),
@@ -204,7 +204,7 @@ class ShoesCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             elevation: 3,
             child: Container(
-              height: 170,
+              height: 350,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),

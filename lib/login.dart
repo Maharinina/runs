@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:runs/home.dart';
@@ -15,7 +13,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  bool isPasswordVisible = false;
   @override
   Widget build(BuildContext context) {
     TextEditingController controllerEmail = TextEditingController();
@@ -40,8 +37,7 @@ class _LoginPageState extends State<LoginPage> {
                 builder: (context) => HomeView(
                     user: User(
                         id: id, name: name, email: email, password: password)),
-              )
-              );
+              ));
         } else {
           final snackBar = SnackBar(
             backgroundColor: Colors.redAccent,
@@ -59,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
         final snackBar = SnackBar(
           backgroundColor: Colors.redAccent,
           content: Text(
-            'invalid username or password',
+            e.toString(),
             style: TextStyle(
               fontFamily: 'Poppins-Regular',
               color: Color(0xFFFFFFFF),
@@ -150,39 +146,25 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(height: 18),
               TextField(
-                obscureText: true,
-                controller: controllerPass,
-                style: const TextStyle(
-                  fontFamily: 'Poppins Light',
-                  fontSize: 16,
-                ),
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  labelText: "Password",
-                  hintText: "Password",
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
-                  hintStyle: const TextStyle(
+                  obscureText: true,
+                  controller: controllerPass,
+                  style: const TextStyle(
                     fontFamily: 'Poppins Light',
                     fontSize: 16,
                   ),
-                  suffixIcon: IconButton(
-                      onPressed: (() => setState(
-                          () => isPasswordVisible = !isPasswordVisible)),
-                      icon: isPasswordVisible
-                          ? Icon(Icons.visibility)
-                          : Icon(Icons.visibility_off)),
-                ),
-                // obscureText: isPasswordVisible,
-                // validator: (value) {
-                //   if (value == null || value.isEmpty) {
-                //     return 'This field cannot be empty';
-                //   }
-                //   return null;
-                // },
-              ),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    labelText: "Password",
+                    hintText: "Password",
+                    contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 18),
+                    hintStyle: const TextStyle(
+                      fontFamily: 'Poppins Light',
+                      fontSize: 16,
+                    ),
+                  )),
               const SizedBox(height: 5),
               SizedBox(height: 100),
               ElevatedButton(

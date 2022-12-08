@@ -136,10 +136,8 @@ class _ContainerHomeState extends State<ContainerHome> {
                 children: [
                   brand(image: "assets/images/plus.png", nmbrand: "Add"),
                   brand(image: "assets/images/nike.png", nmbrand: "Nike"),
-                  brand(image: "assets/images/adidas.png", nmbrand: "Adidas"),
-                  brand(
-                      image: "assets/images/Airjordan.png",
-                      nmbrand: "Air Jordan"),
+                  brand(image: "assets/images/ventela.png", nmbrand: "ventela"),
+                  brand(image: "assets/images/kodachi.png", nmbrand: "Kodachi"),
                 ],
               ),
             ),
@@ -220,6 +218,27 @@ class _ContainerHomeState extends State<ContainerHome> {
                                             image: NetworkImage(
                                                 "${snapshot.data![index].image}"),
                                           )),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 30,
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFF2F2F2),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 5),
+                                      child: Text(
+                                        "${snapshot.data![index].brand}",
+                                        style: TextStyle(
+                                          fontFamily: 'OpenSans-Medium',
+                                          fontSize: 14,
+                                          color: Color(0XFF383838),
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(height: 10),

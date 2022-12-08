@@ -23,9 +23,9 @@ class RunService {
     return Shoess;
   }
 
-  static Future<List<Shoes>> fetchShoesBasedbrand(String category) async {
+  static Future<List<Shoes>> fetchShoesBasedbrand(String brand) async {
     Response response =
-        await Dio().get("http://localhost:3004/shoes?category=" + category);
+        await Dio().get("http://localhost:3004/shoes?category=" + brand);
     List<Shoes> Shoess =
         (response.data as List).map((v) => Shoes.fromJSON(v)).toList();
     return Shoess;
