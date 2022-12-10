@@ -32,7 +32,7 @@ class _LandingState extends State<Landing> {
               ),
               Padding(padding: EdgeInsets.only(bottom: 20)),
               const Text(
-                'Search for Running Shoes',
+                'Search for Comfort Shoes',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 24,
@@ -42,7 +42,7 @@ class _LandingState extends State<Landing> {
               ),
               Padding(padding: EdgeInsets.only(bottom: 20)),
               const Text(
-                'Shoes Sport Catalog',
+                'Shoes Catalog',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16,

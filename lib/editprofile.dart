@@ -12,7 +12,7 @@ class EditProfile extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfile> {
-  bool isPasswordVisible = false;
+  bool isPasswordVisible = true;
 
   TextEditingController controllerName = TextEditingController();
   TextEditingController controllerEmail = TextEditingController();
@@ -31,12 +31,13 @@ class _EditProfileState extends State<EditProfile> {
 
   void changePassword(String name, email, password) async {
     try {
-      var response = await Dio()
-          .put('http://localhost:3004/user' + widget.user.id.toString(), data: {
-        "name": name,
-        "email": email,
-        "password": password,
-      });
+      var response = await Dio().put(
+          'http://localhost:3004/user/' + widget.user.id.toString(),
+          data: {
+            "name": name,
+            "email": email,
+            "password": password,
+          });
       if (response.data.length > 0) {
         print("Account updated successfully");
         Navigator.pop(context);
@@ -232,13 +233,13 @@ class _EditProfileState extends State<EditProfile> {
                           if (formKey.currentState!.validate()) {
                             changePassword(controllerName.text,
                                 controllerEmail.text, controllerPass.text);
-                            // setState(() {
-                            //   controllerName.text = "${snapshot.data?[0].name}";
-                            //   controllerEmail.text =
-                            //       "${snapshot.data?[0].email}";
-                            //   controllerPass.text =
-                            //       "${snapshot.data?[0].password}";
-                            // });
+                            setState(() {
+                              controllerName.text = "${snapshot.data?[0].name}";
+                              controllerEmail.text =
+                                  "${snapshot.data?[0].email}";
+                              controllerPass.text =
+                                  "${snapshot.data?[0].password}";
+                            });
                           }
                         },
                         child: Text(
