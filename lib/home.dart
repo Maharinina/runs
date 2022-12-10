@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:runs/addcatalog.dart';
 import 'package:runs/brand.dart';
 import 'package:runs/models/shoes.dart';
 import 'package:runs/models/user.dart';
@@ -93,7 +94,16 @@ class _ContainerHomeState extends State<ContainerHome> {
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
                 children: [
-                  brand(image: "assets/images/plus.png", nmbrand: "Add"),
+                  GestureDetector(
+                    child:
+                        brand(image: "assets/images/plus.png", nmbrand: "Add"),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Addcatalog()));
+                    },
+                  ),
                   GestureDetector(
                     child:
                         brand(image: "assets/images/nike.png", nmbrand: "Nike"),
