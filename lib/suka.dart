@@ -1,28 +1,3 @@
-// import 'package:flutter/material.dart';
-
-// class Suka extends StatelessWidget {
-//   const Suka({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         backgroundColor: Color(0xFFFFFFFF),
-//         elevation: 0,
-//         title: Text(
-//           'Like',
-//           style: TextStyle(
-//             color: Color(0xFF4f4f4f),
-//             fontFamily: 'Poppins Bold',
-//             fontSize: 20,
-//           ),
-//         ),
-//         centerTitle: true,
-//       ),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import 'package:runs/models/shoes.dart';
 import 'package:runs/service/runs_service.dart';

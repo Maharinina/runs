@@ -1,14 +1,3 @@
-// import 'package:dio/dio.dart';
-
-// class RunService {
-//   static Future<List<dynamic>> getRunJson() async {
-//     Dio dio = Dio();
-
-//     var response = await dio.get('http://localhost:3004/shoes');
-//     return response.data;
-//   }
-// }
-
 import 'package:dio/dio.dart';
 import 'package:runs/models/shoes.dart';
 
@@ -25,7 +14,7 @@ class RunService {
 
   static Future<List<Shoes>> fetchShoesBasedbrand(String brand) async {
     Response response =
-        await Dio().get("http://localhost:3004/shoes?category=" + brand);
+        await Dio().get("http://localhost:3004/shoes?brand=" + brand);
     List<Shoes> Shoess =
         (response.data as List).map((v) => Shoes.fromJSON(v)).toList();
     return Shoess;

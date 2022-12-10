@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:runs/brand.dart';
 import 'package:runs/models/shoes.dart';
 import 'package:runs/models/user.dart';
 import 'package:runs/pencarian.dart';
@@ -34,48 +35,6 @@ class _HomeViewState extends State<HomeView> {
     ];
 
     return Scaffold(
-        // appBar: AppBar(
-        //   leading: GestureDetector(
-        //     onTap: () {
-        //       Navigator.pushReplacement(
-        //         context,
-        //         MaterialPageRoute(builder: (context) => LoginPage()),
-        //       );
-        //     },
-        //     child: const Icon(
-        //       Icons.arrow_back,
-        //       color: Color.fromARGB(255, 250, 248, 248),
-        //     ),
-        //   ),
-        //   elevation: 0,
-        //   backgroundColor: Color.fromARGB(255, 10, 10, 10),
-        //   title: new Row(
-        //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //     children: <Widget>[
-        //       Text('Runs'),
-        //       InkWell(
-        //         onTap: () {
-        //           Navigator.pushReplacement(
-        //             context,
-        //             MaterialPageRoute(builder: (context) => Search()),
-        //           );
-        //         },
-        //         child: Container(
-        //           child: new Row(
-        //             children: <Widget>[
-        //               new Container(
-        //                 child: Padding(
-        //                   padding: const EdgeInsets.all(3.0),
-        //                   child: Icon(Icons.search),
-        //                 ),
-        //               )
-        //             ],
-        //           ),
-        //         ),
-        //       )
-        //     ],
-        //   ),
-        // ),
         backgroundColor: Color.fromARGB(255, 6, 6, 6),
         bottomNavigationBar: BottomNavigationBar(
           onTap: onTap,
@@ -135,9 +94,36 @@ class _ContainerHomeState extends State<ContainerHome> {
                 shrinkWrap: true,
                 children: [
                   brand(image: "assets/images/plus.png", nmbrand: "Add"),
-                  brand(image: "assets/images/nike.png", nmbrand: "Nike"),
-                  brand(image: "assets/images/ventela.png", nmbrand: "ventela"),
-                  brand(image: "assets/images/kodachi.png", nmbrand: "Kodachi"),
+                  GestureDetector(
+                    child:
+                        brand(image: "assets/images/nike.png", nmbrand: "Nike"),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Brand(brand: "Nike")));
+                    },
+                  ),
+                  GestureDetector(
+                    child: brand(
+                        image: "assets/images/ventela.jpg", nmbrand: "Ventela"),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Brand(brand: "Ventela")));
+                    },
+                  ),
+                  GestureDetector(
+                    child: brand(
+                        image: "assets/images/kodachi.png", nmbrand: "Kodachi"),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Brand(brand: "Kodachi")));
+                    },
+                  )
                 ],
               ),
             ),
