@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
           backgroundColor: Color(0xFFFFFFFF),
           centerTitle: true,
           title: Text(
-            'Login',
+            'Sign In',
             style: TextStyle(
                 color: Color.fromARGB(255, 6, 6, 6),
                 fontSize: 25,

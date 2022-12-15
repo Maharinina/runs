@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:runs/home.dart';
 import 'package:runs/models/shoes.dart';
-import 'package:runs/models/user.dart';
 
 class Detail extends StatefulWidget {
   final Shoes shoes;
@@ -24,7 +22,7 @@ class _DetailState extends State<Detail> {
   void addLike(String nama, image, warna, desc, price, brand, isSaved) async {
     try {
       var response = await Dio().put(
-          'http://192.168.100.226/shoes/' + widget.shoes.id.toString(),
+          'http://localhost:3004/shoes/' + widget.shoes.id.toString(),
           data: {
             "nama": nama,
             "image": image,
@@ -65,7 +63,7 @@ class _DetailState extends State<Detail> {
             Stack(
               children: [
                 Container(
-                  height: 360,
+                  height: 350,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -74,20 +72,6 @@ class _DetailState extends State<Detail> {
                     ),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 5, vertical: 30),
-                    child: Icon(
-                      Icons.keyboard_arrow_left,
-                      color: Color(0xFFFFFFFF),
-                      size: 45,
-                    ),
-                  ),
-                )
               ],
             ),
             Padding(
@@ -123,7 +107,7 @@ class _DetailState extends State<Detail> {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 25),
+                            SizedBox(height: 5),
                             Text(
                               widget.shoes.nama,
                               style: TextStyle(
@@ -132,7 +116,7 @@ class _DetailState extends State<Detail> {
                                 color: Color(0XFF383838),
                               ),
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: 10),
                             Text(
                               widget.shoes.price,
                               style: TextStyle(
@@ -142,9 +126,9 @@ class _DetailState extends State<Detail> {
                               ),
                               textAlign: TextAlign.justify,
                             ),
-                            SizedBox(height: 15),
+                            SizedBox(height: 10),
                             Text(
-                              "Warna",
+                              "Color",
                               style: TextStyle(
                                 fontFamily: 'OpenSans-SemiBold',
                                 fontSize: 14,
@@ -162,7 +146,7 @@ class _DetailState extends State<Detail> {
                             ),
                             SizedBox(height: 15),
                             Text(
-                              "Deskripsi",
+                              "Description",
                               style: TextStyle(
                                 fontFamily: 'OpenSans-SemiBold',
                                 fontSize: 14,
@@ -203,8 +187,10 @@ class _DetailState extends State<Detail> {
                 isSaved);
           });
         },
-        child: Icon(Icons.bookmark,
-            color: isSaved == false ? Color(0xFF949494) : Color(0xFF6D9886)),
+        child: Icon(Icons.favorite,
+            color: isSaved == false
+                ? Color(0xFF949494)
+                : Color.fromARGB(255, 124, 12, 12)),
         elevation: 2,
         backgroundColor: Color(0xFFFFFFFF),
       ),

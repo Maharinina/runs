@@ -1,4 +1,3 @@
-import 'package:runs/models/user.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +18,7 @@ class _AddcatalogState extends State<Addcatalog> {
 
   void add(String nama, image, warna, desc, price, brand, bool isSaved) async {
     try {
-      var response = await Dio().post('http://192.168.100.226/shoes', data: {
+      var response = await Dio().post('http://localhost:3004/shoes', data: {
         "nama": nama,
         "image": image,
         "warna": warna,
@@ -91,7 +90,7 @@ class _AddcatalogState extends State<Addcatalog> {
               ),
               SizedBox(height: 30),
               Text(
-                "Nama",
+                "Name",
                 style: TextStyle(
                     fontFamily: 'OpenSans-Bold',
                     color: Color(0XFF383838),
@@ -109,7 +108,7 @@ class _AddcatalogState extends State<Addcatalog> {
                       borderRadius: BorderRadius.circular(10),
                       borderSide:
                           BorderSide(color: Color(0xFFF2F2F2), width: 3)),
-                  hintText: 'Nama Catalog',
+                  hintText: 'Catalog Name',
                   hintStyle: TextStyle(
                       fontFamily: 'OpenSans-Light',
                       color: Color(0xFF949494),
@@ -147,7 +146,7 @@ class _AddcatalogState extends State<Addcatalog> {
               ),
               SizedBox(height: 18),
               Text(
-                "Warna",
+                "Color",
                 style: TextStyle(
                     fontFamily: 'OpenSans-Bold',
                     color: Color(0XFF383838),
@@ -167,7 +166,7 @@ class _AddcatalogState extends State<Addcatalog> {
                       borderRadius: BorderRadius.circular(10),
                       borderSide:
                           BorderSide(color: Color(0xFFF2F2F2), width: 3)),
-                  hintText: 'Warna Sepatu',
+                  hintText: 'Shoes Color',
                   hintStyle: TextStyle(
                       fontFamily: 'OpenSans-Light',
                       color: Color(0xFF949494),
@@ -176,7 +175,7 @@ class _AddcatalogState extends State<Addcatalog> {
               ),
               SizedBox(height: 18),
               Text(
-                "Deskripsi",
+                "Description",
                 style: TextStyle(
                     fontFamily: 'OpenSans-Bold',
                     color: Color(0XFF383838),
@@ -196,7 +195,7 @@ class _AddcatalogState extends State<Addcatalog> {
                       borderRadius: BorderRadius.circular(10),
                       borderSide:
                           BorderSide(color: Color(0xFFF2F2F2), width: 3)),
-                  hintText: 'Deskripsi Sepatu',
+                  hintText: 'Shoes Description',
                   hintStyle: TextStyle(
                       fontFamily: 'OpenSans-Light',
                       color: Color(0xFF949494),
@@ -204,80 +203,58 @@ class _AddcatalogState extends State<Addcatalog> {
                 ),
               ),
               SizedBox(height: 18),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: 300,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Brand",
-                          style: TextStyle(
-                              fontFamily: 'OpenSans-Bold',
-                              color: Color(0XFF383838),
-                              fontSize: 16),
-                        ),
-                        SizedBox(height: 10),
-                        TextFormField(
-                          controller: controllerBrand,
-                          decoration: InputDecoration(
-                            filled: true,
-                            focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xFFF2F2F2))),
-                            fillColor: Color(0xFFF2F2F2),
-                            enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(
-                                    color: Color(0xFFF2F2F2), width: 3)),
-                            hintText: 'Choose one: Nike, Ventella, Nike',
-                            hintStyle: TextStyle(
-                                fontFamily: 'OpenSans-Light',
-                                color: Color(0xFF949494),
-                                fontSize: 16),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    width: 175,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Price",
-                          style: TextStyle(
-                              fontFamily: 'OpenSans-Bold',
-                              color: Color(0XFF383838),
-                              fontSize: 16),
-                        ),
-                        SizedBox(height: 10),
-                        TextFormField(
-                          controller: controllerPrice,
-                          decoration: InputDecoration(
-                            filled: true,
-                            focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xFFF2F2F2))),
-                            fillColor: Color(0xFFF2F2F2),
-                            enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(
-                                    color: Color(0xFFF2F2F2), width: 3)),
-                            hintText: 'the price',
-                            hintStyle: TextStyle(
-                                fontFamily: 'OpenSans-Light',
-                                color: Color(0xFF949494),
-                                fontSize: 16),
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+              Text(
+                "Brand",
+                style: TextStyle(
+                    fontFamily: 'OpenSans-Bold',
+                    color: Color(0XFF383838),
+                    fontSize: 16),
+              ),
+              SizedBox(height: 10),
+              TextFormField(
+                controller: controllerBrand,
+                decoration: InputDecoration(
+                  filled: true,
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFFF2F2F2))),
+                  fillColor: Color(0xFFF2F2F2),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide:
+                          BorderSide(color: Color(0xFFF2F2F2), width: 3)),
+                  hintText: 'Choose one: Nike, Ventella, Nike',
+                  hintStyle: TextStyle(
+                      fontFamily: 'OpenSans-Light',
+                      color: Color(0xFF949494),
+                      fontSize: 16),
+                ),
+              ),
+              SizedBox(height: 18),
+              Text(
+                "Price",
+                style: TextStyle(
+                    fontFamily: 'OpenSans-Bold',
+                    color: Color(0XFF383838),
+                    fontSize: 16),
+              ),
+              SizedBox(height: 10),
+              TextFormField(
+                controller: controllerPrice,
+                decoration: InputDecoration(
+                  filled: true,
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFFF2F2F2))),
+                  fillColor: Color(0xFFF2F2F2),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide:
+                          BorderSide(color: Color(0xFFF2F2F2), width: 3)),
+                  hintText: 'Shoes Price',
+                  hintStyle: TextStyle(
+                      fontFamily: 'OpenSans-Light',
+                      color: Color(0xFF949494),
+                      fontSize: 16),
+                ),
               ),
               SizedBox(height: 30),
               ElevatedButton(

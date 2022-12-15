@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:runs/addcatalog.dart';
-import 'package:runs/brand.dart';
 import 'package:runs/models/shoes.dart';
 import 'package:runs/models/user.dart';
 import 'package:runs/pencarian.dart';
@@ -8,6 +6,8 @@ import 'package:runs/profile.dart';
 import 'package:runs/service/runs_service.dart';
 import 'package:runs/suka.dart';
 
+import 'addcatalog.dart';
+import 'brand.dart';
 import 'detail.dart';
 
 class HomeView extends StatefulWidget {
@@ -72,7 +72,7 @@ class _ContainerHomeState extends State<ContainerHome> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
         child: Column(
           children: <Widget>[
             SizedBox(height: 20),
@@ -204,8 +204,8 @@ class _ContainerHomeState extends State<ContainerHome> {
                                 children: <Widget>[
                                   Expanded(
                                     child: Container(
-                                      // height: 170,
-                                      // width: 160,
+                                      height: 250,
+                                      width: 250,
                                       decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(16),
@@ -216,6 +216,7 @@ class _ContainerHomeState extends State<ContainerHome> {
                                           )),
                                     ),
                                   ),
+                                  SizedBox(height: 18),
                                   Container(
                                     height: 30,
                                     width: 100,
