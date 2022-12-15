@@ -24,7 +24,7 @@ class _DetailState extends State<Detail> {
   void addLike(String nama, image, warna, desc, price, brand, isSaved) async {
     try {
       var response = await Dio().put(
-          'http://localhost:3004/shoes/' + widget.shoes.id.toString(),
+          'http://192.168.100.226/shoes/' + widget.shoes.id.toString(),
           data: {
             "nama": nama,
             "image": image,

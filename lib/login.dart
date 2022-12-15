@@ -20,7 +20,7 @@ class _LoginPageState extends State<LoginPage> {
 
     void login(String email, password) async {
       try {
-        var response = await Dio().get('http://localhost:3004/user?email=' +
+        var response = await Dio().get('http://192.168.100.226/user?email=' +
             email +
             '&password=' +
             password);

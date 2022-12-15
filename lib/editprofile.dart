@@ -32,7 +32,7 @@ class _EditProfileState extends State<EditProfile> {
   void changePassword(String name, email, password) async {
     try {
       var response = await Dio().put(
-          'http://localhost:3004/user/' + widget.user.id.toString(),
+          'http://192.168.100.226/user/' + widget.user.id.toString(),
           data: {
             "name": name,
             "email": email,

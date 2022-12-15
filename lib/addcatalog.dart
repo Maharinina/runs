@@ -19,7 +19,7 @@ class _AddcatalogState extends State<Addcatalog> {
 
   void add(String nama, image, warna, desc, price, brand, bool isSaved) async {
     try {
-      var response = await Dio().post('http://localhost:3004/shoes', data: {
+      var response = await Dio().post('http://192.168.100.226/shoes', data: {
         "nama": nama,
         "image": image,
         "warna": warna,

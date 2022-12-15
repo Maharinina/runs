@@ -77,32 +77,38 @@ class _SearchState extends State<Search> {
   _searchBar() {
     return Padding(
       padding: const EdgeInsets.only(bottom: 25, top: 10),
-      child: Container(
-        child: TextFormField(
-          onChanged: (text) {
-            text = text.toLowerCase();
-            setState(() {
-              _shoesDisplay = _shoes.where((recipe) {
-                var recipeTitle = recipe.nama.toLowerCase();
-                return recipeTitle.contains(text);
-              }).toList();
-            });
-          },
-          decoration: InputDecoration(
-            filled: true,
-            focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFFF2F2F2))),
-            fillColor: Color(0xFFF2F2F2),
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Color(0xFFF2F2F2), width: 3)),
-            hintText: 'Search for shoes',
-            hintStyle: TextStyle(
-                fontFamily: 'OpenSans-Light',
-                color: Color(0xFF949494),
-                fontSize: 16),
+      child: Column(
+        children: [
+          Container(
+            child: TextFormField(
+              onChanged: (text) {
+                text = text.toLowerCase();
+                setState(() {
+                  _shoesDisplay = _shoes.where((recipe) {
+                    var recipeTitle = recipe.nama.toLowerCase();
+                    return recipeTitle.contains(text);
+                  }).toList();
+                });
+              },
+              decoration: InputDecoration(
+                filled: true,
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFFF2F2F2))),
+                fillColor: Color(0xFFF2F2F2),
+                enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: Color(0xFFF2F2F2), width: 3)),
+                hintText: 'Search for shoes',
+                hintStyle: TextStyle(
+                    fontFamily: 'OpenSans-Light',
+                    color: Color(0xFF949494),
+                    fontSize: 16),
+              ),
+            ),
           ),
-        ),
+          SizedBox(height: 20),
+          Text("Pencarian Tidak di Temukan"),
+        ],
       ),
     );
   }
@@ -128,7 +134,7 @@ class ShoesCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             elevation: 3,
             child: Container(
-              height: 350,
+              height: 300,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
