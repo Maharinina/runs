@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:runs/detail.dart';
 import 'package:runs/models/shoes.dart';
 import 'package:runs/service/runs_service.dart';
 
@@ -68,10 +69,27 @@ class _SearchState extends State<Search> {
   }
 
   _listItem(index) {
-    return ShoesCard(
-        image: _shoesDisplay[index].image,
-        nama: _shoesDisplay[index].nama,
-        price: _shoesDisplay[index].price);
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => Detail(
+                    shoes: Shoes(
+                        id: _shoesDisplay[index].id,
+                        nama: _shoesDisplay[index].nama,
+                        image: _shoesDisplay[index].image,
+                        warna: _shoesDisplay[index].warna,
+                        desc: _shoesDisplay[index].desc,
+                        price: _shoesDisplay[index].price,
+                        brand: _shoesDisplay[index].brand,
+                        isSaved: _shoesDisplay[index].isSaved as bool))));
+      },
+      child: ShoesCard(
+          image: _shoesDisplay[index].image,
+          nama: _shoesDisplay[index].nama,
+          price: _shoesDisplay[index].price),
+    );
   }
 
   _searchBar() {
@@ -107,7 +125,6 @@ class _SearchState extends State<Search> {
             ),
           ),
           SizedBox(height: 20),
-          Text("Pencarian Tidak di Temukan"),
         ],
       ),
     );
